@@ -35,12 +35,6 @@ class ServerDetect:
         self.sock = socket(AF_NET, SOCK_DGRAM)
         self.sock.bind(('', PORT_LISTEN_DEVICES))
 
-        # data drop space
-        self.rdata = {}
-
-        # build a struct object
-        self.unpacker = struct.Struct('f f')
-
     def loop(self):
         while True:
             self.waitandrecv()
@@ -62,6 +56,8 @@ class ServerDetect:
     def waitandrecv():
         # wait for packet to be received
         packet, addr = self.sockrecv.recv()
+
+        # un-pickle the packet
         data = pickle.loads(packet)
 
         # process the data
