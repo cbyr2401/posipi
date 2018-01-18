@@ -102,3 +102,4 @@ ENV/
 
 # Apple shit
 .idea
+vcs.xml
