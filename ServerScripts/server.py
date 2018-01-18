@@ -23,6 +23,8 @@ import importlib
 
 import pickle
 
+import MySQLdb as mysql
+
 BROADCAST_ADDRESS = '255.255.255.0'
 PORT_LISTEN_DEVICES = 12345
 
@@ -50,10 +52,16 @@ class ServerDetect:
         print server_ip
         print addr
 
-        
+        # validate the incoming data
 
 
-    def waitandrecv():
+        # check time from packet
+
+
+        # write to database the information
+
+
+    def waitandrecv(self):
         # wait for packet to be received
         packet, addr = self.sockrecv.recv()
 
@@ -64,7 +72,9 @@ class ServerDetect:
         self.process_packet(self, data)
         
 
-
+class Database:
+    def __init__(self):
+        
         
 
 
